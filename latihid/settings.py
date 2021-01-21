@@ -26,7 +26,7 @@ SECRET_KEY = ')k#7u4s94hh&7#)z0$&#j)!)q(1vnmex*s3i3(6nji+1qd+p23'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['latihid-clone.herokuapp.com', '127.0.0.1']
 
 
 # Application definition

@@ -1,0 +1,1 @@
+web: gunicorn latihid.wsgi --log-file -
