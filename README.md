@@ -10,6 +10,7 @@ Framework yang digunakan adalah Django sehingga untuk menjalankan proyek ini dib
 
 Website dapat dijalankan tanpa harus menggunakan web server dengan menjalankan:
 > python manage.py runserver
+
 Kemudian akses laman [localhost:8000](http://localhost:8000)
 
 ## License
