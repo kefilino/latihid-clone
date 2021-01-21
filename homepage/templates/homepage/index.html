@@ -1,0 +1,316 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Homepage | LatihID</title>
+{% endblock title %}
+
+{% block content %}
+<div id="carouselBanner" class="mw-100">
+    <div>
+        <img src="https://uploads-ssl.webflow.com/5e7b5d2f46049ebbc421c67a/5f265df315da6c63b7b28769_web%20banner%20pc.png"
+            class="d-block w-100 mb-3" alt="">
+    </div>
+    <div>
+        <img src="https://uploads-ssl.webflow.com/5f13e626a1dac6a3bd6b0c13/5ffc6646e6ae96a859472787_Copy%20of%20Banner%20LIT%2017.png"
+            class="d-block w-100" alt="">
+    </div>
+    <div>
+        <img src="https://uploads-ssl.webflow.com/5f13e626a1dac6a3bd6b0c13/5f60287bb9d5a99ae8ab3867_Banner%20web%20PETA%20Desktop-p-2600.png"
+            class="d-block w-100" alt="">
+    </div>
+    <div>
+        <img src="https://uploads-ssl.webflow.com/5f13e626a1dac6a3bd6b0c13/5f5f3a90e55ab0fd5d9ce4c7_Banner%20Modul%20Desktop-p-2600.png"
+            class="d-block w-100" alt="">
+    </div>
+</div>
+<div class="d-flex flex-column mx-auto mb-3 w-75">
+    <h3 class="text-center my-3">Kenapa memilih LatihID?</h3>
+    <div class="row row-cols-1 row-cols-lg-3 justify-content-between">
+        <div class="col p-3 keunggulan-item align-items-end">
+            <img src="https://design.upanastudio.com/latih_id_asset/Aset%20LatihID/misc/1-KeunggulanLatihID_1.svg"
+                width="80" alt="">
+            <p class="fw-bold fs-5 my-3">Fokus pada UMKM</p>
+            <p class="fw-normal fs-5">Konten Berfokus untuk Pengembangan Bisnis UMKM Indonesia</p>
+        </div>
+        <div class="col p-3 keunggulan-item">
+            <img src="https://design.upanastudio.com/latih_id_asset/Aset%20LatihID/misc/1-KeunggulanLatihID_2.svg"
+                width="80" alt="">
+            <p class="fw-bold fs-5 my-3">Bebas Akses Dimana Saja</p>
+            <p class="fw-normal fs-5">Modul Pelatihan Dapat Diakses dari Perangkat Apa Saja Melihat Website</p>
+        </div>
+        <div class="col p-3 keunggulan-item">
+            <img src="https://design.upanastudio.com/latih_id_asset/Aset%20LatihID/misc/1-KeunggulanLatihID_3.svg"
+                width="80" alt="">
+            <p class="fw-bold fs-5 my-3">Akses Seumur Hidup</p>
+            <p class="fw-normal fs-5">Akses Seumur Hidup dan Satu Login untuk Semua Kursus Pelatihan yang Ada</p>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-lg-3 align-items-end">
+        <div class="col p-3 keunggulan-item">
+            <img src="https://design.upanastudio.com/latih_id_asset/Aset%20LatihID/misc/1-KeunggulanLatihID_4.svg"
+                width="80" alt="">
+            <p class="fw-bold fs-5 my-3">Akses Kapan Saja</p>
+            <p class="fw-normal fs-5">Akses 24/7 untuk Semua Modul Pelatihan</p>
+        </div>
+        <div class="col p-3 keunggulan-item">
+            <img src="https://design.upanastudio.com/latih_id_asset/Aset%20LatihID/misc/1-KeunggulanLatihID_5.svg"
+                width="80" alt="">
+            <p class="fw-bold fs-5 my-3">Akses Gratis</p>
+            <p class="fw-normal fs-5">Akses Gratis untuk Semua Modul Pelatihan</p>
+        </div>
+        <div class="col p-3 keunggulan-item">
+            <img src="https://design.upanastudio.com/latih_id_asset/Aset%20LatihID/misc/1-KeunggulanLatihID_6.svg"
+                width="80" alt="">
+            <p class="fw-bold fs-5 my-3">Konten yang Praktis</p>
+            <p class="fw-normal fs-5">Pelatihan Praktis yang Dapat Langsung Diterapkan</p>
+        </div>
+    </div>
+    <div class="d-flex flex-column rounded mt-4 p-4" style="background: #D7EFF4">
+        <div class="d-flex flex-column flex-lg-row mt-4 mx-auto mx-lg-0 text-center text-lg-start">
+            <div class="mx-auto mx-lg-0 me-lg-4">
+                <img src="https://design.upanastudio.com/latih_id_asset/Aset%20LatihID/misc/1-Modul.svg" class="" alt="">
+            </div>
+            <div class="">
+                <p class="fw-bold fs-4 my-3">Kelas Gratis Populer</p>
+                <a href="#" class="btn button">Lihat Modul Lainnya</a>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-5 mx-3" id="carouselModulGratis">
+            {% for kelas in kelas_gratis %}
+            <a href="/modul/{{kelas.id}}/">
+                <div class="card mx-3 mb-3 shadow-sm">
+                    <img src="{% get_media_prefix %}{{ kelas.banner_img }}" class="card-img-top mw-100" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ kelas.nama }}</h5>
+                        <p class="hargaModul">
+                            {% if kelas.harga == 0 %}
+                            Gratis
+                            {% else %}
+                            Rp{{ kelas.harga|stringformat:".2f" }}
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center rounded mt-4 p-4" style="background: #d6d2c4">
+        <div class="d-flex flex-column mt-4 mw-25">
+            <div class="mx-auto mx-lg-0 me-lg-4">
+                <img src="https://design.upanastudio.com/latih_id_asset/Aset%20LatihID/misc/1-KeunggulanLatihID_3.svg"
+                    class="w-25" alt="">
+            </div>
+            <div class="flex-fill">
+                <p class="fw-bold fs-4 my-3">Kelas LatihID Terbaru</p>
+                <p class="fw-normal fs-6 my-3">LatihID selalu berkomitment untuk memberikan pelatihan-pelatihan
+                    terbaru yang sesuai dengan trend, pasar, dan kondisi nyata di lapangan.</p>
+                <a href="#" class="btn button">Lihat Modul Lainnya</a>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between mt-4 mx-3 w-75" id="carouselModulBaru">
+            {% for kelas in kelas_terbaru %}
+            <a href="/modul/{{kelas.id}}/">
+                <div class="card mx-3 mb-3 shadow-sm">
+                    <img src="{% get_media_prefix %}{{ kelas.banner_img }}" class="card-img-top mw-100" alt=""
+                        height="180">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ kelas.nama }}</h5>
+                        <p class="hargaModul">
+                            {% if kelas.harga == 0 %}
+                            Gratis
+                            {% else %}
+                            Rp{{ kelas.harga|stringformat:".2f" }}
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="d-flex flex-column rounded mt-4 p-4" style="background: #ffe7dc">
+        <div class="d-flex flex-column flex-lg-row mt-4 mx-auto mx-lg-0 text-center text-lg-start">
+            <div class="mx-auto mx-lg-0 me-lg-4">
+                <img src="https://design.upanastudio.com/latih_id_asset/Aset%20LatihID/misc/2-Talks.svg" alt="">
+            </div>
+            <div class="flex-fill">
+                <p class="fw-bold fs-4 my-3">Expert Class</p>
+                <a href="#" class="btn button">Lihat Kelas Lainnya</a>
+            </div>
+        </div>
+        <div class="d-flex flex-column flex-lg-row justify-content-between mt-5 mx-3">
+            {% for kelas in kelas_expert %}
+            <a href="/modul/{{kelas.id}}/">
+                <div class="card mx-3 mb-3 shadow-sm">
+                    <img src="{% get_media_prefix %}{{ kelas.banner_img }}" class="card-img-top mw-100" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ kelas.nama }}</h5>
+                        <p class="hargaModul">
+                            {% if kelas.harga == 0 %}
+                            Gratis
+                            {% else %}
+                            Rp{{ kelas.harga|stringformat:".2f" }}
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<section class="row w-100 mx-auto text-white">
+    <div class="col p-5 w-50 cardBg"
+        style="background-image: url(https://1.bp.blogspot.com/-xj9cgzCuR2o/X4-SU5KwgDI/AAAAAAAAE7k/Y5pAuUEp7rUZXtnTVBtLISC2yJsWUVk_ACLcBGAsYHQ/s0/meeting.png)">
+        <div class="cardDetails">
+            <h2 class="fw-bold">Menjadi Pembicara</h2>
+            <p class="w-75">Kami membuka kesempatan untuk individu/lembaga yang ingin menjadi pemateri pada LatihID
+                Modul, Talks,
+                ataupun Pojok Cerita (PETA).</p>
+            <a href="#" class="btn daftarButton">Ayo Kolaborasi</a>
+        </div>
+    </div>
+    <div class="col p-5 w-50 cardBg"
+        style="background-image: url(https://1.bp.blogspot.com/-WaLs1vlpcp0/X4-SU7KKPRI/AAAAAAAAE7g/YfKvSUalBRIxfTOumstN75xszg8Ts-B7wCLcBGAsYHQ/s0/Deal.png)">
+        <div class="cardDetails">
+            <h2 class="fw-bold">Menjadi Mitra</h2>
+            <p class="w-75">Kami menerima individu/lembaga yang ingin bekerja sama untuk jenis kemitraan lainnya,
+                seperti media partner.</p>
+            <a href="#" class="btn daftarButton">Ayo Kolaborasi</a>
+        </div>
+    </div>
+</section>
+
+<footer class="d-flex flex-column footer">
+    <div class="row justify-content-evenly w-75 mx-auto">
+        <div class="col p-4">
+            <img src="https://design.upanastudio.com/latih_id_asset/Aset%20LatihID/Logo%20LatihID%20-%20New/NEW%20LOGO%20LATIHID%20Color.png"
+                alt="" width="70" class="rounded mx-auto d-block">
+            <p class="text-justify mt-2">LatihID adalah suatu platform penyedia pelatihan gratis dan berkualitas
+                untuk UMKM di
+                Indonesia</p>
+        </div>
+        <div class="col p-4">
+            <h6>Menu</h6>
+            <ul class="list-unstyled">
+                <li><a href="#" class="footer-link fw-light">Beranda</a></li>
+                <li><a href="#" class="footer-link fw-light">Modul</a></li>
+                <li><a href="#" class="footer-link fw-light">Tentang Kami</a></li>
+                <li><a href="#" class="footer-link fw-light">Hubungi Kami</a></li>
+            </ul>
+        </div>
+        <div class="col p-4">
+            <h6>Info</h6>
+            <ul class="list-unstyled">
+                <li><a href="#" class="footer-link fw-light">FAQ</a></li>
+                <li><a href="#" class="footer-link fw-light">Ayo Kolaborasi</a></li>
+                <li><a href="#" class="footer-link fw-light">Kebijakan Privasi</a></li>
+                <li><a href="#" class="footer-link fw-light">Syarat Penggunaan</a></li>
+            </ul>
+        </div>
+        <div class="col p-4">
+            <h6>Ikuti Kami</h6>
+            <ul class="list-unstyled">
+                <li><a href="https://www.youtube.com/channel/UCi2WG2vnvehuplyf6R5T2Ew" class="footer-link fw-light"><i
+                            class="fa fa-youtube-play"></i> LatihID Official</a>
+                </li>
+                <li><a href="https://www.instagram.com/latihidofficial/" class="footer-link fw-light"><i
+                            class="fa fa-instagram"></i> @latihidofficial</a>
+                </li>
+                <li><a href="https://www.facebook.com/latihidofficial/" class="footer-link fw-light"><i
+                            class="fa fa-facebook-square"></i> Latih ID</a></li>
+            </ul>
+        </div>
+        <div class="col p-4">
+            <h6>Jadi yang pertama mengetahui update terbaru dari kami!</h6>
+            <form action="">
+                <div class="d-flex flex-column mb-3">
+                    <input type="text" class="form-control mt-2" name="nama" placeholder="Nama">
+                    <input type="email" class="form-control mt-2" name="email" placeholder="Email">
+                    <button type="submit" class="btn daftarButton mt-2">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="text-center mb-2">
+        &copy; 2020 Copyright LatihID
+    </div>
+</footer>
+{% endblock content %}
+
+{% block script %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#carouselBanner').slick({
+            dots: true,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 4000
+        });
+        $('#carouselModulGratis').slick({
+            dots: true,
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+        $('#carouselModulBaru').slick({
+            dots: true,
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    });
+</script>
+{% endblock script %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>{{ data_modul.nama }} | LatihID</title>
+{% endblock title %}
+
+{% block content %}
+<div class="disabled">
+    <img src="{% get_media_prefix %}{{ data_modul.banner_img }}" class="w-100" alt="{{ data_modul.nama }}">
+</div>
+<footer class="row bg-light justify-content-between align-items-center" style="height: 100px;">
+    <div class="col text-center fs-4">
+        &copy; LatihID 2021
+    </div>
+    <ul class="col text-center list-unstyled fs-5">
+        <li><a href="#">Syarat Penggunaan</a></li>
+        <li><a href="#">Kebijakan Privasi</a></li>
+    </ul>
+</footer>
+{% endblock content %}
